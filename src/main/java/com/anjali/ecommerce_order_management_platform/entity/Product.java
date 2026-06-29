@@ -1,4 +1,7 @@
 package com.anjali.ecommerce_order_management_platform.entity;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
@@ -12,9 +15,19 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
 
+    @NotBlank(message = "Product name is required")
     private String productName;
+
+    @NotBlank(message = "Category is required")
     private String category;
+
+    @NotNull(message = "Price is required")
+    @Min(value = 1, message = "Price must be greater than 0")
     private BigDecimal price;
+
+    @NotNull(message = "Stock quantity is required")
+    @Min(value = 0, message = "Stock quantity cannot be negative")
+
     private Integer stockQuantity;
     private String status;
     private LocalDateTime createdDate;

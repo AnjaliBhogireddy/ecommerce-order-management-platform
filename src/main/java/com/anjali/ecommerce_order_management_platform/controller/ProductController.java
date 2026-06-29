@@ -3,6 +3,7 @@ package com.anjali.ecommerce_order_management_platform.controller;
 import com.anjali.ecommerce_order_management_platform.entity.Product;
 import com.anjali.ecommerce_order_management_platform.service.ProductService;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public Product createProduct(@RequestBody Product product) {
+    public Product createProduct (@Valid @RequestBody Product product) {
         return productService.createProduct(product);
     }
 
