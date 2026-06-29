@@ -125,11 +125,13 @@ Product
 
 ## 📷 Swagger UI
 
-```
-http://localhost:8080/swagger-ui/index.html
-```
+Interactive API documentation is available through Swagger UI.
 
----
+![Swagger UI](docs/swagger-home.png)
+
+Access locally:
+
+http://localhost:8080/swagger-ui/index.html
 
 ## ▶️ Running the Project
 
