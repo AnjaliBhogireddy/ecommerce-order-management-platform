@@ -11,6 +11,7 @@ import com.anjali.ecommerce_order_management_platform.repository.CustomerReposit
 import com.anjali.ecommerce_order_management_platform.repository.OrderItemRepository;
 import com.anjali.ecommerce_order_management_platform.repository.ProductRepository;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -73,8 +74,16 @@ public class OrderService {
             totalAmount = totalAmount.add(itemTotal);
         }
 
+
         savedOrder.setTotalAmount(totalAmount);
 
         return customerOrderRepository.save(savedOrder);
     }
+
+    public List<CustomerOrder> getOrdersByCustomer(Long customerId) {
+
+        return customerOrderRepository.findByCustomerCustomerId(customerId);
+
+    }
+
 }
